@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import ItemModel from '../item/item.model';
 import Item from '../item/item';
-import { getItems } from '../api.js'
+import { getItems, deleteItem } from '../api.js'
+
 
 class Cart extends Component {
   state = {
     list: []
+  }
+
+  deleteItem = (itemToDelete) => {
+      deleteItem(itemToDelete).then((response) => {
+          this.setState({list: response})
+      })
+
   }
 
   componentDidMount() {
@@ -16,7 +24,6 @@ class Cart extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="App-item">
           {this.state.list.map((item) => <Item item={item}/>)}

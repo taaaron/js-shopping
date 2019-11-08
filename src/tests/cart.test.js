@@ -19,4 +19,19 @@ describe('Cart tests', () => {
            done();
        });
    });
+
+   test('When delete is click delete item', done =>{
+       const wrapper = shallow(<Cart/>);
+
+       setImmediate(() => {
+           wrapper.instance().deleteItem(wrapper.state().list[0]);
+
+            setImmediate(() =>{
+                expect(wrapper.state().list.length).toBe(1);
+                done();
+            })
+
+       })
+   })
+
 });

@@ -35,4 +35,4 @@ describe('test for items', () => {
             expect(onDeleteMock.mock.calls.length).toBe(1);
         })
     });
-});
+ });
